@@ -1,0 +1,10 @@
+{
+    "editor.wordWrap": "off",
+    "editor.autoClosingBrackets": "always",
+    "editor.autoClosingQuotes": "always",
+    "editor.autoIndent": "full",
+    "editor.formatOnType": false,
+    "editor.formatOnPaste": false,
+    "files.autoSave": "off",
+    "editor.tabCompletion": "on"
+}
