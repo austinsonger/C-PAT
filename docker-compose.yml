@@ -17,7 +17,7 @@ services:
     - "443:443"
 
   keycloak:
-    image: nuwcdivnpt/stig-manager-auth:latest
+    image: nswccrane/c-pat-auth:latest
     # image: quay.io/keycloak/keycloak:19.0.2
     # alternative image from Ironbank
     # image: registry1.dso.mil/ironbank/opensource/keycloak/keycloak:19.0.2
