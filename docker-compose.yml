@@ -1,4 +1,4 @@
-# C-PAT & STIG Manager with Non CAC Authentication
+# CPAT & STIG Manager with CAC Authentication
 
 version: '3.7'
 
@@ -17,8 +17,7 @@ services:
     - "443:443"
 
   keycloak:
-    image: nswccrane/c-pat-auth:latest
-    # image: quay.io/keycloak/keycloak:19.0.2
+    image: quay.io/keycloak/keycloak:19.0.2
     # alternative image from Ironbank
     # image: registry1.dso.mil/ironbank/opensource/keycloak/keycloak:19.0.2
     environment:
@@ -59,12 +58,12 @@ services:
     # alternative image based on Ironbank Node.js
     # image: nuwcdivnpt/stig-manager:latest-ironbank
     environment:
-      - STIGMAN_OIDC_PROVIDER=http://keycloak:8080/realms/stigman
-      - STIGMAN_CLIENT_OIDC_PROVIDER=https://localhost/kc/realms/stigman
+      - STIGMAN_OIDC_PROVIDER=http://keycloak:8080/realms/RMFTools
+      - STIGMAN_CLIENT_OIDC_PROVIDER=https://localhost/kc/realms/RMFTools
       - STIGMAN_CLASSIFICATION=U
       - STIGMAN_DB_HOST=mysql
-      - STIGMAN_DB_USER=stigman
-      - STIGMAN_DB_PASSWORD=stigmanpw
+      - STIGMAN_DB_USER=root
+      - STIGMAN_DB_PASSWORD=rootpw
       # uncomment below to fetch current STIG library from DISA and import it
       # - STIGMAN_INIT_IMPORT_STIGS=true
     init: true
@@ -85,4 +84,5 @@ services:
     # uncomment the line above to persist MySQL data
     ports:
       - "3306:3306"
+
     

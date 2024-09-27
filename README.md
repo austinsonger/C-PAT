@@ -1,8 +1,8 @@
-# C-PAT & STIG Manager Non CAC Authentication
+# C-PAT & STIG Manager with CAC Authentication
 
 ## Limitations of this example
 
-This is an example orchestration for deploying C-PAT & STIG Manager with support for user authentication. **The example supports connections to and from `localhost` only and is NOT intended for production use.**
+This is an example orchestration for deploying C-PAT & STIG Manager with support for user authentication incorporating the U.S. Department of Defense Common Access Card (CAC). **The example supports connections to and from `localhost` only and is NOT intended for production use.**
 
 ## General architecture
 
@@ -18,6 +18,7 @@ This general architecture can be implemented with a wide range of technologies, 
 ## Requirements for running the example
 
 - Recent Windows, Linux, or macOS
+- CAC reader configured for your OS
 - docker
 - docker-compose
 - Chrome, Edge, or Firefox browser
@@ -47,7 +48,7 @@ The orchestration has successfully bootstrapped when you see a `started` message
 {"date":"2024-09-27T13:05:19.583Z","level":3,"component":"index","type":"listening","data":{"port":"8086","api":"/api","client":"/","documentation":"/docs","swagger":"/api-docs"}}
 ```
 
-## Authenticating to CPAT and STIG Manager
+## Authenticating to CPAT and STIG Manager with CAC
 
 Once CPAT and STIG Manager have started, navigate your browser to:
 
@@ -127,6 +128,6 @@ Keycloak behind Nginx requires a keystore that contains certificates for the DoD
 `chrome://settings/clearBrowserData` - Cached images and files
 
 
+## Alternate non-CAC Example
 
-
-
+The [demo-auth-no-CAC branch of this repo](https://github.com/NSWC-Crane/C-PAT/tree/demo-auth-no-CAC) demonstrates a configuration that does not require CAC or mutual TLS, and uses a Keycloak container with built-in usernames and passwords available here: [https://hub.docker.com/r/nswccrane/c-pat-auth](https://hub.docker.com/r/nswccrane/c-pat-auth)
