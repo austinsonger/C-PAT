@@ -24,7 +24,7 @@ services:
 
   keycloak:
     #image: nswccrane/c-pat-auth:latest
-    image: c-pat-auth:latest
+    image: ghcr.io/austinsonger/c-pat/dev-c-pat-auth:latest
     environment:
       - KEYCLOAK_ADMIN=admin
       - KEYCLOAK_ADMIN_PASSWORD=Pa55w0rd
