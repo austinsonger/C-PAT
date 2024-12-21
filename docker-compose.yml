@@ -36,6 +36,12 @@ services:
       - ./kc/h2:/opt/keycloak/data/h2
     depends_on:
       - mysql
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/auth"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
 
   nginx:
     image: nginx:1.23.1
@@ -76,5 +82,6 @@ services:
       - STIGMAN_INIT_IMPORT_STIGS=true
     init: true
     depends_on:
-      - mysql
       - keycloak
+      - mysql
+    condition: service_healthy
