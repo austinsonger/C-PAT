@@ -84,4 +84,3 @@ services:
     depends_on:
       - keycloak
       - mysql
-    condition: service_healthy
