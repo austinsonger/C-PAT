@@ -5,7 +5,7 @@ version: '3.7'
 services:
   mysql:
     image: mysql:8.0.21
-    command: --innodb-buffer-pool-size=512M --sort_buffer_size=64M
+    command: --default-authentication-plugin=caching_sha2_password --innodb-buffer-pool-size=512M --sort_buffer_size=64M
     environment:
       - MYSQL_ROOT_PASSWORD=rootpw
       - MYSQL_USER=root
