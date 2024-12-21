@@ -33,8 +33,7 @@ services:
     volumes:
       - ./kc/h2:/opt/keycloak/data/h2
     depends_on:
-      mysql:
-        condition: service_healthy
+      - mysql
 
   nginx:
     image: nginx:1.23.1
@@ -46,8 +45,7 @@ services:
     ports:
       - "443:443"
     depends_on:
-      keycloak:
-        condition: service_started
+      - keycloak
 
   cpat:
     image: nswccrane/c-pat:dev
@@ -61,10 +59,8 @@ services:
       - CPAT_DB_USER=root
       - CPAT_DB_PASSWORD=rootpw
     depends_on:
-      mysql:
-        condition: service_healthy
-      keycloak:
-        condition: service_healthy
+      - mysql
+      - keycloak
 
   stigman:
     image: nuwcdivnpt/stig-manager:latest
@@ -77,7 +73,5 @@ services:
       - STIGMAN_DB_PASSWORD=stigmanpw
     init: true
     depends_on:
-      mysql:
-        condition: service_healthy
-      keycloak:
-        condition: service_healthy
+      - mysql
+      - keycloak
