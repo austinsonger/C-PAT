@@ -13,6 +13,7 @@ services:
       - MYSQL_DATABASE=stigman
     volumes:
       - ./mysql-init:/docker-entrypoint-initdb.d
+      - ./mysql-data:/var/lib/mysql
     ports:
       - "3306:3306"
     healthcheck:
@@ -71,6 +72,7 @@ services:
       - STIGMAN_DB_HOST=mysql
       - STIGMAN_DB_USER=stigman
       - STIGMAN_DB_PASSWORD=stigmanpw
+      - STIGMAN_INIT_IMPORT_STIGS=true
     init: true
     depends_on:
       - mysql
