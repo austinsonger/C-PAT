@@ -79,7 +79,7 @@ services:
       - STIGMAN_DB_HOST=mysql
       - STIGMAN_DB_USER=stigman
       - STIGMAN_DB_PASSWORD=stigmanpw
-      - STIGMAN_INIT_IMPORT_STIGS=true
+      # - STIGMAN_INIT_IMPORT_STIGS=true
     init: true
     depends_on:
       - keycloak
